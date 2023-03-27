@@ -1,31 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import '/controller/product_details_controller.dart';
 
 class Product extends StatelessWidget {
-  const Product({Key? key}) : super(key: key);
+   Product({Key? key}) : super(key: key);
 
-  Widget rating (){
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Icon(Icons.star,color: Color.fromRGBO(238, 208, 106, 1.0),),
-        Icon(Icons.star,color: Color.fromRGBO(238, 208, 106, 1.0),),
-        Icon(Icons.star,color: Color.fromRGBO(238, 208, 106, 1.0),),
-        Icon(Icons.star,color: Color.fromRGBO(238, 208, 106, 1.0),),
-        Icon(Icons.star,color: Color.fromRGBO(238, 208, 106, 1.0),),
-
-      ],
-    );
-  }
-
-
+    final ProductController controller = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Get.toNamed('product_details');
-      },
+      onTap: (){Get.toNamed('product_details');},
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -35,14 +19,13 @@ class Product extends StatelessWidget {
                 children: [
                   //image
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
+                    borderRadius: BorderRadius.circular(10),
                     child: ClipRect(
                       child: Image.network(
                         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCFwy8f8qB_WRdXUMkat1YiL-RceOVU8F2q_YKadxJvu5kKpkote_eMyHX-ytV_eUeRZI&usqp=CAU',
-
                         fit: BoxFit.cover,
                         width: MediaQuery.of(context).size.width*0.45,
-                        height: MediaQuery.of(context).size.width*0.48,
+                        height: MediaQuery.of(context).size.width*0.5,
                       ),
                     ),
                   ),
@@ -50,12 +33,10 @@ class Product extends StatelessWidget {
                   Positioned(
                     top: 3,
                     right: 3,
-                    child: InkWell(
-                      child:  Icon(Icons.favorite,color: Theme.of(context).accentColor,size:30 ,),
-                      onTap: (){},
-                    ),
+                    child: Icon(Icons.favorite,color: Theme.of(context).accentColor,size:30 ,),
                   )
-                ] ),
+                ],
+            ),
             const Text('blue shirt',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
             Row(
               children: [
@@ -67,7 +48,8 @@ class Product extends StatelessWidget {
                        fontWeight: FontWeight.bold,
                    ),
                  ),
-                rating(),
+                const Padding(padding: EdgeInsets.symmetric(horizontal: 5)),
+                controller.rating3(1),
               ],
             ),
           ],

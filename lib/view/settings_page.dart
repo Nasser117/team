@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getcourse01/main.dart';
-import 'package:getcourse01/view/List_of%20_experts_page.dart';
+
 import '../controller/settings_controller.dart';
-import '../controller/theme_controller.dart';
-import '/view/page_one.dart';
+
 
 class SettingsPage extends StatelessWidget {
 

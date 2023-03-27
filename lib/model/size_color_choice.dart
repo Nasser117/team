@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '/controller/product_details_controller.dart';
+
 final controller = Get.put(ProductController());
 
 class SizeChoice extends StatelessWidget {
   const SizeChoice({super.key});
-
   @override
   Widget build(BuildContext context) {
-
     return SizedBox(
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -16,21 +15,18 @@ class SizeChoice extends StatelessWidget {
             controller.sizeOptions.length,
                 (index) {
               return GestureDetector(
-                onTap: () {
-                  controller.selectedSizeIndex.value = index;
-                },
+                onTap: () {controller.selectedSizeIndex.value = index;},
                 child: Obx(() => Padding(
-                  padding: const EdgeInsets.only(right: 4),
+                  padding: const EdgeInsets.only(right: 10),
                   child: Container(
-                    height: 35,
-                    width: 35,
+                    height: MediaQuery.of(context).size.width*0.09,
+                    width: MediaQuery.of(context).size.width*0.09,
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                       color: controller.selectedSizeIndex.value == index
                           ?  Theme.of(context).accentColor
                           : Theme.of(context).primaryColor,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(7),
                     ),
                     //size names
                     child: Text(
@@ -44,18 +40,16 @@ class SizeChoice extends StatelessWidget {
                   ),
                 )),
               );
-            }),
+            }
+            ),
       ),
     );
-
   }
 }
 class ColorChoice extends StatelessWidget {
   const ColorChoice({super.key});
-
   @override
   Widget build(BuildContext context) {
-
     return SizedBox(
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -63,21 +57,12 @@ class ColorChoice extends StatelessWidget {
             controller.colorOptions.length,
                 (index) {
               return GestureDetector(
-                onTap: () {
-                  controller.selectedColorIndex.value = index;
-                },
+                onTap: () {controller.selectedColorIndex.value = index;},
                 child: Obx(() => Padding(
-                  padding: const EdgeInsets.only(right: 4),
-                  child: Container(
-                    height: 35,
-                    width: 35,
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: controller.colorOptions[index],
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    //size names
+                  padding: const EdgeInsets.symmetric(horizontal: 3,vertical: 5),
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundColor:controller.colorOptions[index] ,
                     child: Icon(
                       controller.selectedColorIndex.value==index
                           ? Icons.check
@@ -87,10 +72,9 @@ class ColorChoice extends StatelessWidget {
                   ),
                 )),
               );
-            }),
+            }
+            ),
       ),
     );
-
   }
 }
-

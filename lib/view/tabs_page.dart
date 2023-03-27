@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import '/view/home.dart';
+import 'package:get/get.dart';
+import '/controller/home_controller.dart';
 
 
 class TabsPage extends StatefulWidget {
-  const TabsPage({super.key});
-
+   TabsPage({super.key});
+   final controller = Get.put(HomeController());
   @override
   _TabsPageState createState() => _TabsPageState();
 }
-
+final controller = Get.put(HomeController());
 class _TabsPageState extends State<TabsPage> {
   int _selectedIndex = 0;
   final List<Widget> _pages = [
@@ -21,6 +23,8 @@ class _TabsPageState extends State<TabsPage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      controller.category.value = 'home';
+      controller.selectedCategoryIndex.value = 6;
     });
   }
 
@@ -50,7 +54,7 @@ class _TabsPageState extends State<TabsPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Theme.of(context).primaryColor, // set selected item color here
+        selectedItemColor: Theme.of(context).accentColor, // set selected item color here
         unselectedItemColor: Colors.grey, // set unselected item color here
         onTap: _onItemTapped,
       ),

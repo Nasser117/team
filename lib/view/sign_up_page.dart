@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controller/Log_in_controller.dart';
+import '../controller/log_in_controller.dart';
 
 class SignUpPage extends StatelessWidget {
 
@@ -48,6 +48,7 @@ class SignUpPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: TextFormField(
+                  cursorColor: Theme.of(context).primaryColor,
                   validator: (text){
                     if (text!.isEmpty ){
                       return 'This field is required ';
@@ -58,12 +59,18 @@ class SignUpPage extends StatelessWidget {
                     return null ;
                   },
                   // controller: username,
-                  decoration: const InputDecoration(hintText: "E-mail"),),
+                  decoration:  InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: Theme.of(context).primaryColor),
+                      ),
+                      hintText: "E-mail"),),
               ),
               //username
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: TextFormField(
+                  cursorColor: Theme.of(context).primaryColor,
                   validator: (text){
                     if (text!.isEmpty ){
                       return 'This field is required ';
@@ -74,7 +81,12 @@ class SignUpPage extends StatelessWidget {
                     return null ;
                   },
                   // controller: username,
-                  decoration: const InputDecoration(hintText: "username"),),
+                  decoration:  InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: Theme.of(context).primaryColor),
+                      ),
+                      hintText: "username"),),
               ),
               //password
               Padding(
@@ -82,6 +94,7 @@ class SignUpPage extends StatelessWidget {
                 child: GetBuilder<LogInController>(
                     builder: (controller){
                       return TextFormField(
+                        cursorColor: Theme.of(context).primaryColor,
                         validator: (text){
                           if (text!.isEmpty ){
                             return 'This field is required ';
@@ -94,8 +107,12 @@ class SignUpPage extends StatelessWidget {
                         // controller: password,
                         obscureText: controller.x,
                         decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                              BorderSide(color: Theme.of(context).primaryColor),
+                            ),
                             suffix: IconButton(
-                              icon:  Icon(controller.view) ,
+                              icon:  Icon(controller.view,color: Theme.of(context).primaryColor,) ,
                               onPressed: (){
                                 controller.showHidePassword();
                               }
@@ -109,6 +126,7 @@ class SignUpPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: TextFormField(
+                  cursorColor: Theme.of(context).primaryColor,
                   validator: (text){
                     if (text!.isEmpty ){
                       return 'This field is required ';
@@ -122,7 +140,11 @@ class SignUpPage extends StatelessWidget {
                   keyboardType:TextInputType.number ,
                   maxLength: 10,
                   decoration:
-                  const InputDecoration(
+                   InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                        BorderSide(color: Theme.of(context).primaryColor),
+                      ),
                       hintText: "phone number"),
                 ),
               ),
@@ -149,7 +171,7 @@ class SignUpPage extends StatelessWidget {
                                 items: controller.days.map((String items){
                                   return DropdownMenuItem(
                                     value: items,
-                                    child: Text(items,style: const TextStyle(color: Colors.teal),),
+                                    child: Text(items,style:  TextStyle(color:Theme.of(context).primaryColor),),
                                   );
                                 }).toList(),
                                 onChanged: (String? newValueDay){
@@ -175,7 +197,7 @@ class SignUpPage extends StatelessWidget {
                                 items: controller.month.map((String items){
                                   return DropdownMenuItem(
                                     value: items,
-                                    child: Text(items,style: const TextStyle(color: Colors.teal),),
+                                    child: Text(items,style:  TextStyle(color: Theme.of(context).primaryColor),),
                                   );
                                 }).toList(),
                                 onChanged: (String? newValueMonth){
@@ -201,7 +223,7 @@ class SignUpPage extends StatelessWidget {
                                 items: controller.year.map((String items){
                                   return DropdownMenuItem(
                                     value: items,
-                                    child: Text(items,style: const TextStyle(color: Colors.teal),),
+                                    child: Text(items,style:  TextStyle(color: Theme.of(context).primaryColor),),
                                   );
                                 }).toList(),
                                 onChanged: (String? newValueYear){

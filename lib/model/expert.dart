@@ -2,31 +2,21 @@ import 'package:flutter/material.dart';
 
 class Expert {
   final String id;
-
   final String title;
-
   final String body;
-
   const Expert({
     required this.id,
     required this.title,
     required this.body,
-
   });
-
-
 }
-
 class ExpertCard extends StatelessWidget {
   final int id;
   final String title;
-
-
   ExpertCard({
     required this.id,
     required this.title,
   });
-
   @override
   Widget build(BuildContext context) {
     return InkWell(

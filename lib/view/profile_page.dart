@@ -6,9 +6,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  List<String> _options = ['Option 1', 'Option 2', 'Option 3'];
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
   final TextEditingController controller;
-
   const SearchBar({Key? key, required this.controller}) : super(key: key);
 
   @override
@@ -27,11 +26,7 @@ class SearchBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             hintText: 'Search',
-            border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color:Theme.of(context).primaryColor,),
-                borderRadius: BorderRadius.circular(20)),
-            prefixIcon:  IconButton(icon:const Icon(Icons.search,),color: Theme.of(context).primaryColor, onPressed: () {  },),
+                prefixIcon:  IconButton(icon:const Icon(Icons.search,),color: Theme.of(context).accentColor, onPressed: () {  },),
           ),
         ),
       ),

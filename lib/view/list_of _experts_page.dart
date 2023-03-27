@@ -2,18 +2,16 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/list_of_experts_controller.dart';
-import '../model/Expert.dart';
+import '../model/expert.dart';
 import 'package:http/http.dart' as http;
 
 class ListOfExpertsPage  extends StatefulWidget {
    ListOfExpertsPage ({Key? key}) : super(key: key);
-  ListOfExpertsController controller = Get.put(ListOfExpertsController());
+  final ListOfExpertsController controller = Get.put(ListOfExpertsController());
   @override
   State<ListOfExpertsPage> createState() => _ListOfExpertsPageState();
 }
-
 class _ListOfExpertsPageState extends State<ListOfExpertsPage> {
-
 
   //http
   List  posts = [];
@@ -30,15 +28,6 @@ class _ListOfExpertsPageState extends State<ListOfExpertsPage> {
     getPost();
     super.initState();
   }
-
-
-//   void buildList(){
-//    List postsEven =posts.where((element) => posts.indexOf(element) % 2 == 0).toList();
-//   print(postsEven) ; // Output: [1, 3, 5, 7, 9]
-//
-// }
-
-
   @override
   Widget build(BuildContext context) {
     //List postsEven =posts.where((element) => posts.indexOf(element) % 2 == 0).toList();
@@ -65,17 +54,7 @@ class _ListOfExpertsPageState extends State<ListOfExpertsPage> {
                    }
                    );
            }
-           return Container(width: 200,color: Colors.red,);
-          },
-        )
-
-
-
-
-    );
+           return const Text('data');
+          },));
   }
 }
-//
-// Padding(
-// padding: const EdgeInsets.all(8.0),
-// child: Text( '${i+1} _ ${posts[i]['id']}',style: const TextStyle(fontSize: 30),),
